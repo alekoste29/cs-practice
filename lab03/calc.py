@@ -1,5 +1,5 @@
 
 a = float(input('a = '))
-op = float(input('op = '))
+op = str(input('op = '))
 b = float(input('b = '))
-if op == '+'
+if op == '+':
