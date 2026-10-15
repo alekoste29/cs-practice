@@ -1,10 +1,7 @@
 
-a = float(input('a = '))
-op = str(input('op = '))
-b = float(input('b = '))
-if op == '+':
-    print(a+b)
-elif op == '-':
-    print(a-b)
-elif op == '*':
-    print(a*b)
+def add(a,b)
+    return a+b
+if __name__ == "__main__":
+    a = float(input("a = "))
+    B = float(input("b = "))
+    print(add(a,b))
