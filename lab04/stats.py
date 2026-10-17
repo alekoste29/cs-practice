@@ -9,7 +9,7 @@ def parse_record(line):
         temp = float(temp)
     except ValueError:
         raise ValueError(f"температура не число: {parts[1]!r}")
-    return {"city": city, "temp": temp, "date": date}
+    return {"city": city, "temperature": temp, "date": date}
 
 
 def read_valid(lines):
@@ -26,7 +26,7 @@ def read_valid(lines):
 def _means(records):
     total, count = {}, {}
     for r in records:
-        total[r["city"]] = total.get(r["city"], 0) + r["temp"]
+        total[r["city"]] = total.get(r["city"], 0) + r["temperature"]
         count[r["city"]] = count.get(r["city"], 0) + 1
     return {c: total[c] / count[c] for c in total}
 
