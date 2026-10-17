@@ -23,3 +23,16 @@ def read_valid(lines):
             continue
     return records
 
+def _means(records):
+    total, count = {}, {}
+    for r in records:
+        total[r["city"]] = total.get(r["city"], 0) + r["temp"]
+        count[r["city"]] = count.get(r["city"], 0) + 1
+    return {c: total[c] / count[c] for c in total}
+
+def average_by_city(records):
+    return {c: round(m, 1) for c, m in _means(records).items()}
+
+def warmest_city(records):
+    means = _means(records)
+    return min(means, key=lambda c: (-means[c], c))
