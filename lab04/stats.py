@@ -36,3 +36,11 @@ def average_by_city(records):
 def warmest_city(records):
     means = _means(records)
     return min(means, key=lambda c: (-means[c], c))
+
+records = read_valid(lines)
+skipped = sum(1 for l in lines if l.strip()) - len(records)
+
+print(len(records))
+print(skipped)
+if records:
+    print(f"{average_by_city(records)[warmest_city(records)]:.1f}")
