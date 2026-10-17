@@ -1,17 +1,11 @@
 import sys
+from stats import average_by_city, read_valid, warmest_city
 
 lines = sys.stdin.read().splitlines()
-total = {}
-count = {}
-for line in lines:
-    city, temp, date = line.split(";")
-    total[city] = total.get(city, 0) + float(temp)
-    count[city] = count.get(city, 0) + 1
-best = ""
-for city in total:
-    if best == "" or total[city] / count[city] > total[best] / count[best]:
-        best = city
-print(len(lines))
-print(0)
-print(total[best] / count[best])
-from stats import average_by_city, read_valid, warmest_city
+records = read_valid(lines)
+skipped = sum(1 for l in lines if l.strip()) - len(records)
+
+print(len(records))
+print(skipped)
+if records:
+    print(f"{average_by_city(records)[warmest_city(records)]:.1f}")
