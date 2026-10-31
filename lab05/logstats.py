@@ -19,7 +19,7 @@ def count_levels(lines):
     return counts
 
 
-'''def top_errors(lines, n):
+def top_errors(lines, n):
     counts = {}
     for line in lines:
         if not line.strip():
@@ -33,7 +33,7 @@ def count_levels(lines):
     result = sorted(counts.items(), key=lambda p: (-p[1], p[0]))
     return [[message, count] for message, count in result[:n]]
 
-def format_report(counts, errors):
+'''def format_report(counts, errors):
     out = ['Отчёт по журналу', '']
     for level in sorted(counts):
         out.append(f'{level}: {counts[level]}')
