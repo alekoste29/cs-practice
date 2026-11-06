@@ -1,10 +1,9 @@
 def parse_event(line):
-    line = line.split(' ')
-    if len(line) >= 3 and line[1] in ('DEBUG','INFO','WARNING','ERROR'):
-        time,level,*message = line
-        message = ' '.join(message).strip()
-        return { 'time': time,'level': level,'message': message}
-    raise ValueError('негодная строка')
+    parts = line.strip().split(maxsplit=2)
+    if len(parts) < 3 or parts[1] not in ('DEBUG', 'INFO', 'WARNING', 'ERROR'):
+        raise ValueError('негодная строка')
+    time, level, message = parts
+    return {'time': time, 'level': level, 'message': message}
 
 def count_levels(lines):
     counts = {}
