@@ -33,7 +33,7 @@ def top_errors(lines, n):
     result = sorted(counts.items(), key=lambda p: (-p[1], p[0]))
     return [[message, count] for message, count in result[:n]]
 
-'''def format_report(counts, errors):
+def format_report(counts, errors):
     out = ['Отчёт по журналу', '']
     for level in sorted(counts):
         out.append(f'{level}: {counts[level]}')
@@ -41,5 +41,5 @@ def top_errors(lines, n):
     out.append('Частые ошибки:')
     for message, count in errors:
         out.append(f'- {message} — {count}')
-    return '\n'.join(out) + '\n'''
+    return '\n'.join(out) + '\n'
 
