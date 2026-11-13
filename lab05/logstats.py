@@ -41,4 +41,3 @@ def format_report(counts, errors):
     for message, count in errors:
         out.append(f'- {message} — {count}')
     return '\n'.join(out) + '\n'
-
