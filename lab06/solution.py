@@ -12,6 +12,8 @@ def count_by_extension(paths):
     extensions = {}
     for path in paths:
         name = path.split('/')[-1]          # смотрим только на имя файла, не на папки
+        # точка в начале имени (.gitignore) — признак скрытого файла, а не расширение
+        name = name.lstrip('.')
         if '.' in name:
             extension = name.split('.')[-1].lower()
         else:
